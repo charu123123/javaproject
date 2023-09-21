@@ -1,100 +1,60 @@
-package assignment2;
-import java.util.*;
-public class Employee
+package assignment1;
+
+public class Employee {
+int id;
+String name;
+float salary;
+Employee(int empid,String empname,float sal)
 {
-  private int id;
-  private String name;
-  private String dept;
-  private double salary;
-public Employee()
-{
-  id=0;
-  name=null;
-  dept=null;
-  salary=0.0;
+	id=empid;
+	name=empname;
+	salary=sal;
 }
-public Employee(int eid,String ename,String edept,float esalary)
-{
-  id=eid;
-  name=ename;
-  dept=edept;
-  salary=esalary;
+public Employee() {
+	// TODO Auto-generated constructor stub
 }
-public void acceptE()
+public void display()
 {
-   Scanner s=new Scanner(System.in);
-    System.out.println("Enter id:");
-     id=s.nextInt();
-    System.out.println("Enter name:");
-     name=s.next();
-    System.out.println("Enter dept:");
-     dept=s.next();
-    System.out.println("Enter salary:");
-     salary=s.nextDouble();
+	System.out.println("employee name:"+name+""+"salary="+salary);
+	System.out.println();
 }
-public void displayE()
+
+void max(Employee  obj[], float a )
 {
-  	System.out.println("Emp id:"+id);
- 	System.out.println("Emp name:"+name);
- 	System.out.println("Emp dept:"+dept);
-	System.out.println("Emp salary:"+salary);
-}
-public double salary()
+	
+	Employee b = new Employee();
+	
+	for(int i =0 ; i<obj.length; i++)
 	{
-		return salary;
+		if (obj[i].salary > a)
+		{
+			b=obj[i];
+		}
 	}
-}
-class Manager extends Employee
-{
-  private double bonus;
-public void acceptM()
-{
-   	Scanner s=new Scanner(System.in);
-    	System.out.println("Enter bonus:");
-     	bonus=s.nextDouble();  
-}
-public void displayM()
-{
-  System.out.println("Manager bonus:"+bonus);
-}
-public static int max(Manager m[], int n)
-{
-  double max=0;
-  int t=0;
-  for(int i=0;i<n;i++)
-  {
-    if(max<(m[i].salary()+m[i].bonus))
-    {
-       max=m[i].salary()+m[i].bonus;
-       t=i;
-    }
- }
-     System.out.println("\nMax salary : "+max);
-	return t;
-}
-}
-class ex3seta1
-{
-  public static void main(String args[])
-  {
-    	int n,i,ans;
-	Scanner s=new Scanner(System.in);
-   	System.out.println("\n Enter how many records .\n");
-   	n=s.nextInt();
-	Manager m[]=new Manager[n];
-  	for(i=0;i<n;i++)
-  	{
-    		m[i]=new Manager();
-    		m[i].acceptE();
-    		m[i].displayE();
-   		m[i].acceptM();
-    		m[i].displayM();
-  	}
-		ans=Manager.max(m,n);
-		m[ans].displayE();
-		m[ans].displayM();
-  }
+	
+	System.out.println(b.id);
+	System.out.println(b.salary);
+	System.out.println(b.name);
 }
 
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		{
+			Employee [] obj=new Employee [5];
+			obj[0]=new Employee(111,"Rajesh",45000);
+			obj[1]=new Employee(112,"kiara",355000);
+			obj[2]=new Employee(113,"prisha",40000);
+			
+//			for(int i=0;i<=5;i++) {
+//				obj[i].display();
+//			}
+//			
+			
+			float m =obj[0].salary;
+			obj[3].max(obj, m);
+			
+		}
 
+	}
 
+}
